@@ -2,6 +2,7 @@
     "files.associations": {
         "mcu8051.h": "c",
         "main.h": "c",
-        "stdint.h": "c"
+        "stdint.h": "c",
+        "color.h": "c"
     }
 }
