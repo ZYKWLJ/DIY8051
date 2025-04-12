@@ -4,6 +4,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include <stdint.h>
+#include "MCU8051.h"
 #define FILEPATH "../src/instructions.HEX"
 typedef enum _data_type_t
 {

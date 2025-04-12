@@ -52,20 +52,20 @@ uint8_t *hex_parser(const char *filePath)
         printf("open file failed!\n");
         return NULL;
     }
-    uint8_t *code = (uint8_t *)malloc(1024 * 64 * sizeof(uint8_t)); // 64KB的代码空间
+    uint8_t *code = (uint8_t *)malloc(MEM_CODE_SIZE * sizeof(uint8_t)); // 64KB的代码空间
     if (code == NULL)
     {
         printf("malloc failed!\n");
         return NULL;
     }
-    uint8_t *line_buf = (uint8_t *)malloc(256 * sizeof(uint8_t)); // 256B的一行的空间
+    uint8_t *line_buf = (uint8_t *)malloc(MEM_CODE_SIZE * sizeof(uint8_t)); // 256B的一行的空间
     if (line_buf == NULL)
     {
         printf("malloc failed!\n");
         return NULL;
     }
     int line = 0;
-    while (fgets(line_buf, 256, fp)) // 这里开始逐行解析了
+    while (fgets(line_buf, MEM_CODE_SIZE, fp)) // 这里开始逐行解析了
     {
 
         printf("\n\nanaylize line %d hex data %s\n", ++line, line_buf);
@@ -94,7 +94,7 @@ uint8_t *hex_parser(const char *filePath)
             return code;
         case HEX_TYPE_DATA:
             printf("this is data\n");
-            int originAddr=addr;
+            int originAddr = addr;
             for (uint8_t i = 0; i < data_len; i++, ptr += 2)
             {
                 code[addr++] = hex_read(ptr, 2); // 一次读取两字符
