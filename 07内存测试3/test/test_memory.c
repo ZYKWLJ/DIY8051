@@ -98,8 +98,8 @@ void test_sfr_acc() {
 
 // 主测试函数
 void test_memory() {
-    test_bit_addressing_area();
-    // test_sfr_addressing_area();
+    // test_bit_addressing_area();
+    test_sfr_addressing_area();
     // test_iram_addressing_area();
     // test_xram_addressing_area();
     // test_sfr_acc();

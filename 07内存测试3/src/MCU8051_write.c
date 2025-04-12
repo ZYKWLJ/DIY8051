@@ -11,15 +11,14 @@ static void mcu_write_sfr_high_128B(uint8_t addr, uint8_t data)
 {
     // 这里要进行sfr判断，因为里面有一些是已经使用的sfr，其余的才可以放进去！
     printf("mcu_write_sfr: addr = 0x%x, data = 0x%x\n", addr, data);
+    if (addr > SFR_START) // 为什么要减去SFR_start？因为这是相对于SFR的相对地址，得到的是索引！不然会越界！
+    {
+        addr -= SFR_START;
+    }
     switch (addr)
     {
-    case 0x88:
-        /* code_64KB */
-        break;
-
     default:
-        // 为什么要减去SFR_start？因为这是相对于SFR的相对地址，得到的是索引！不然会越界！
-        addr -= SFR_START;
+        printf("%d\n", addr);
         if (addr < MEM_SFR_SIZE)
         {
             mcu.mem.sfr_high_128B[addr] = data;
@@ -37,7 +36,7 @@ static void mcu_write_sfr_high_128B(uint8_t addr, uint8_t data)
 
 static void mcu_write_iram_low_128B(uint8_t addr, uint8_t data)
 {
-    printf("mcu_write_iram_SFR: addr = 0x%x, data = 0x%x\n", addr, data);
+    printf("mcu_write_iram_low_128B: addr = 0x%x, data = 0x%x\n", addr, data);
     mcu.mem.iram_low_128B[addr] = data;
 }
 

@@ -9,11 +9,14 @@ static uint8_t mcu_read_code_64KB(uint16_t addr)
 
 static uint8_t mcu_read_sfr_high_128B(uint8_t addr)
 {
+    if (addr > SFR_START) // 为什么要减去SFR_start？因为这是相对于SFR的相对地址，得到的是索引！不然会越界！
+    {
+        addr -= SFR_START;
+    }
     switch (addr)
     {
         // 为什么要减去SFR_start？因为这是相对于SFR的相对地址，得到的是索引！不然会越界！
     default:
-        addr -= SFR_START;
         return (addr < MEM_SFR_SIZE) ? mcu.mem.sfr_high_128B[addr] : 0;
     }
     return 0;
