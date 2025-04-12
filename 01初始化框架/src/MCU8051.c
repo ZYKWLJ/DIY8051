@@ -1,4 +1,5 @@
 #include "../include/MCU8051.h"
+#include "MCU8051.h"
 static MCU_8051_t mcu;
 void mcu_reset()
 {
