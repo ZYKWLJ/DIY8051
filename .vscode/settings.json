@@ -3,6 +3,11 @@
         "mcu8051.h": "c",
         "main.h": "c",
         "stdint.h": "c",
-        "color.h": "c"
+        "color.h": "c",
+        "hex.h": "c",
+        "stdlib.h": "c",
+        "stdio.h": "c",
+        "string.h": "c",
+        "cstdint": "c"
     }
 }

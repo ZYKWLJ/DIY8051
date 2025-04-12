@@ -1,0 +1,3 @@
+D:/1code/DIY8051/02基本运行流程/build/CMakeFiles/8051_Project.dir
+D:/1code/DIY8051/02基本运行流程/build/CMakeFiles/edit_cache.dir
+D:/1code/DIY8051/02基本运行流程/build/CMakeFiles/rebuild_cache.dir
