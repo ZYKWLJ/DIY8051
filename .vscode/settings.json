@@ -8,6 +8,9 @@
         "stdlib.h": "c",
         "stdio.h": "c",
         "string.h": "c",
-        "cstdint": "c"
+        "cstdint": "c",
+        "mcu8051_write.h": "c",
+        "test_instr.h": "c",
+        "test_memory.h": "c"
     }
 }
